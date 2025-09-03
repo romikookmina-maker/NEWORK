@@ -1,0 +1,422 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 text-gray-900;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-200 hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-700 px-6 py-3 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply border-2 border-blue-500 text-blue-500 px-6 py-3 rounded-lg font-medium hover:bg-blue-500 hover:text-white transition-all duration-200;
+  }
+
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold gradient-text mb-6;
+  }
+
+  .subsection-title {
+    @apply text-lg font-semibold text-gray-800 mb-4;
+  }
+
+  .empty-state {
+    @apply text-center py-12;
+  }
+
+  .empty-state-icon {
+    @apply w-16 h-16 mx-auto text-gray-400 mb-4;
+  }
+
+  .empty-state-title {
+    @apply text-xl font-semibold text-gray-700 mb-2;
+  }
+
+  .empty-state-description {
+    @apply text-gray-500;
+  }
+
+  .loading-spinner {
+    @apply animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500;
+  }
+
+  .loading-skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+}
+
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+
+  .pulse-ring {
+    animation: pulseRing 2s infinite;
+  }
+
+  .star-rating {
+    display: inline-flex;
+    gap: 2px;
+  }
+
+  .star {
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .star:hover {
+    transform: scale(1.1);
+  }
+
+  .star.filled {
+    color: #fbbf24;
+  }
+
+  .star.empty {
+    color: #d1d5db;
+  }
+
+  .chat-bubble {
+    max-width: 70%;
+    word-wrap: break-word;
+  }
+
+  .chat-bubble.sent {
+    @apply bg-blue-500 text-white ml-auto;
+  }
+
+  .chat-bubble.received {
+    @apply bg-gray-200 text-gray-900 mr-auto;
+  }
+
+  .notification-badge {
+    @apply absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center;
+  }
+
+  .calendar-day {
+    @apply w-10 h-10 flex items-center justify-center rounded-lg cursor-pointer transition-all duration-200;
+  }
+
+  .calendar-day:hover {
+    @apply bg-blue-100;
+  }
+
+  .calendar-day.available {
+    @apply bg-green-100 text-green-800 hover:bg-green-200;
+  }
+
+  .calendar-day.booked {
+    @apply bg-red-100 text-red-800 cursor-not-allowed;
+  }
+
+  .calendar-day.selected {
+    @apply bg-blue-500 text-white;
+  }
+
+  .service-card {
+    @apply glass-effect rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .category-card {
+    @apply glass-effect rounded-xl p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer;
+  }
+
+  .search-bar {
+    @apply glass-effect rounded-full px-6 py-4 w-full max-w-2xl mx-auto shadow-lg;
+  }
+
+  .profile-header {
+    @apply glass-effect rounded-2xl p-8 mb-6;
+  }
+
+  .message-input {
+    @apply glass-effect rounded-full px-4 py-3 flex-1 border-0 focus:ring-2 focus:ring-blue-500;
+  }
+
+  .nav-item {
+    @apply flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-200 cursor-pointer;
+  }
+
+  .nav-item.active {
+    @apply bg-white/30 text-blue-600;
+  }
+
+  .professional-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .review-card {
+    @apply glass-effect rounded-lg p-4 mb-4;
+  }
+
+  .time-slot {
+    @apply px-3 py-2 rounded-lg border border-gray-300 hover:border-blue-500 hover:bg-blue-50 cursor-pointer transition-all duration-200;
+  }
+
+  .time-slot.selected {
+    @apply bg-blue-500 text-white border-blue-500;
+  }
+
+  .time-slot.unavailable {
+    @apply bg-gray-100 text-gray-400 cursor-not-allowed;
+  }
+
+  .status-badge {
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-badge.pending {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .status-badge.confirmed {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .status-badge.cancelled {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .status-badge.completed {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .hero-section {
+    @apply relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 text-white;
+  }
+
+  .hero-pattern {
+    background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  }
+
+  .floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .floating-elements::before,
+  .floating-elements::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-elements::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .floating-elements::after {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 3s;
+  }
+  
+  .service-category-grid {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+  }
+
+  .notification-panel {
+    @apply absolute top-full right-0 mt-2 w-80 glass-effect rounded-xl shadow-2xl z-50 max-h-96 overflow-y-auto;
+  }
+
+  .notification-item {
+    @apply p-4 border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors duration-200;
+  }
+
+  .avatar-ring {
+    @apply ring-4 ring-white shadow-lg;
+  }
+
+  .certification-badge {
+    @apply bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .availability-indicator {
+    @apply w-3 h-3 rounded-full border-2 border-white;
+  }
+
+  .availability-indicator.available {
+    @apply bg-green-500;
+  }
+
+  .availability-indicator.busy {
+    @apply bg-red-500;
+  }
+
+  .chat-container {
+    @apply flex flex-col h-96 glass-effect rounded-xl;
+  }
+
+  .chat-messages {
+    @apply flex-1 overflow-y-auto p-4 space-y-3;
+  }
+
+  .chat-input-container {
+    @apply p-4 border-t border-gray-200;
+  }
+
+  .favorite-heart {
+    @apply transition-all duration-200 hover:scale-110;
+  }
+
+  .favorite-heart.active {
+    @apply text-red-500;
+  }
+
+  .favorite-heart.inactive {
+    @apply text-gray-400 hover:text-red-300;
+  }
+
+  .calendar-grid {
+    @apply grid grid-cols-7 gap-1;
+  }
+
+  .appointment-card {
+    @apply glass-effect rounded-lg p-4 border-l-4;
+  }
+
+  .appointment-card.pending {
+    @apply border-l-yellow-500;
+  }
+
+  .appointment-card.confirmed {
+    @apply border-l-green-500;
+  }
+
+  .appointment-card.cancelled {
+    @apply border-l-red-500;
+  }
+
+  .appointment-card.completed {
+    @apply border-l-blue-500;
+  }
+
+  .stats-card {
+    @apply glass-effect rounded-xl p-6 text-center;
+  }
+
+  .stats-number {
+    @apply text-3xl font-bold gradient-text;
+  }
+
+  .stats-label {
+    @apply text-gray-600 text-sm mt-2;
+  }
+  
+  .review-form {
+    @apply glass-effect rounded-xl p-6;
+  }
+
+  .star-rating-input {
+    @apply flex space-x-1 mb-4;
+  }
+
+  .price-tag {
+    @apply bg-green-100 text-green-800 px-3 py-1 rounded-full font-semibold;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  @keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes pulseRing {
+    0% { transform: scale(0.33); }
+    80%, 100% { opacity: 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+}
